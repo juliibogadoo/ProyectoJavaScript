@@ -4,7 +4,7 @@
        "marca" : "Motomel",
        "modelo": "Serie 2",
        "precio": 1600000,
-       "img": "img/349968-800-auto.png"
+       "img": "img/s2.png"
         
     },
     
@@ -13,7 +13,7 @@
         "marca" : "Motomel",
         "modelo": "DLX",
         "precio": 1300000,
-        "img": "img/MOTOMEL---DLX-110.png" 
+        "img": "img/dlx.png" 
      },
     
      {
@@ -21,7 +21,7 @@
         "marca" : "Motomel",
         "modelo": "Blitz tunning",
         "precio": 1400000 ,
-        "img": "img/Blitz-110-v8.II_Tunning_white_web.png" 
+        "img": "img/blitz.png" 
      },
     
      {
@@ -37,7 +37,7 @@
         "marca" : "Honda",
         "modelo": "GLH",
         "precio": 5200000,
-        "img": "img/honda_glh_150_gaucha_mini.png" 
+        "img": "img/glh.png" 
      },
     
      {
@@ -45,7 +45,7 @@
         "marca" : "Bajaj",
         "modelo": "NS",
         "precio": 4000000,
-        "img": "img/bajaj_rouser_200_ns_0km_mini.png"
+        "img": "img/ns200.png"
      },
     
      {
@@ -53,7 +53,7 @@
         "marca" : "Bajaj",
         "modelo": "NS",
         "precio": 3300000,
-        "img": "img/bajaj-pulsar-ns160-td-abs-ug-2024-negro-a68347.png" 
+        "img": "img/ns160.png" 
      },
     
      {
@@ -69,7 +69,7 @@
         "marca" : "Honda",
         "modelo": " CRF",
         "precio": 13300000,
-        "img": "img/c2_r (1).png"
+        "img": "img/crf.png"
      },
     
      {
@@ -77,6 +77,6 @@
         "marca" : "Yamaha",
         "modelo": "Crypton",
         "precio": 2300000,
-        "img": "img/CryptonFi_motos_header.png"
+        "img": "img/crypton.png"
      }
     ]
