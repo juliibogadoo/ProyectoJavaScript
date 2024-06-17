@@ -5,16 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./style/style.css">
-    <title>Document</title>
+    <title>JYLMOTOS</title>
 </head>
 <body>
 <header>
-    <h1>MundoMotos</h1>
-    <a class="carrito" href="#">
-        <i class="fa-solid fa-cart-shopping"></i><span id="cantidad-carrito">0</span></a>
+    <h1 id="titulo">JYLMOTOS</h1>
+        
 </header>
 <nav>
-    <ul id="all-motos" class="menu">
+    <ul class="menu">
         <li>
             <button id="honda-boton" class="boton-marca">
                 <img class="logo" src="img\honda-motorcycle-honda-logo-0.png" alt="" width="500px">
@@ -40,107 +39,26 @@
 </nav>
 <main>
     <div id="contenedor-motos" class="contenedor">
-        <div class="moto">
-            <img id="serie2" class="img-moto" src="img\349968-800-auto.png" alt="">
-            <div class="details">
-                <h3 class="nombre-moto">MOTOMEL S2 FULL 150</h3>
-                <p class="precio-moto">$1.600.000</p>
-                <button class="agregar">COMPRAR</button>
-            </div>
-        </div>
-
-        <div class="moto">
-            <img id="dlx" class="img-moto" src="img\MOTOMEL---DLX-110.png" alt="">
-            <div class="details">
-                <h3 class="nombre-moto">MOTOMEL DELUXE 110</h3>
-                <p class="precio-moto">$1.300.000</p>
-                <button class="agregar">COMPRAR</button>
-            </div>
-        </div>
-
-        <div class="moto">
-            <img id="blitz" class="img-moto" src="img\Blitz-110-v8.II_Tunning_white_web.png" alt="">
-            <div class="details">
-                <h3 class="nombre-moto">MOTOMEL BLITZ TUNNING 110</h3>
-                <p class="precio-moto">$1.400.000</p>
-                <button class="agregar">COMPRAR</button>
-            </div>
-        </div>
-
-        <div class="moto">
-            <img id="skua" class="img-moto" src="https://images.unomotos.com.ar/unomotos/motos_mini/motomel_skua_150_silver_0.png" alt="">
-            <div class="details">
-                <h3 class="nombre-moto">MOTOMEL SKUA SILVER 150</h3>
-                <p class="precio-moto">$2.200.000</p>
-                <button class="agregar">COMPRAR</button>
-            </div>
-        </div>
-
-        <div class="moto">
-            <img id="glh" class="img-moto" src="img\honda_glh_150_gaucha_mini.png" alt="">
-            <div class="details">
-                <h3 class="nombre-moto">HONDA GLH 150</h3>
-                <p class="precio-moto">$2.500.000</p>
-                <button class="agregar">COMPRAR</button>
-            </div>
-        </div>
-
-        <div class="moto">
-            <img id="ns200" class="img-moto" src="img\bajaj_rouser_200_ns_0km_mini.png" alt="">
-            <div class="details">
-                <h3 class="nombre-moto">BAJAJ ROUSER NS 200</h3>
-                <p class="precio-moto">$4.000.000</p>
-                <button class="agregar">COMPRAR</button>
-            </div>
-        </div>
-
-        <div class="moto">
-            <img id="ns160" class="img-moto" src="img\bajaj-pulsar-ns160-td-abs-ug-2024-negro-a68347.png" alt="">
-            <div class="details">
-                <h3 class="nombre-moto">BAJAJ ROUSER NS 160</h3>
-                <p class="precio-moto">$3.300.000</p>
-                <button class="agregar">COMPRAR</button>
-            </div>
-        </div>
-
-        <div class="moto">
-            <img id="cb300" class="img-moto" src="https://motos.honda.com.co/images/cms/Nueva-CB-300F-rojo.png" alt="">
-            <div class="details">
-                <h3 class="nombre-moto">HONDA CB 300</h3>
-                <p class="precio-moto">$6.000.000</p>
-                <button class="agregar">COMPRAR</button>
-            </div>
-        </div>
-
-        <div class="moto">
-            <img id="crf" class="img-moto" src="img\c2_r (1).png" alt="">
-            <div class="details">
-                <h3 class="nombre-moto">HONDA CRF 250</h3>
-                <p class="precio-moto">$13.300.000</p>
-                <button class="agregar">COMPRAR</button>
-            </div>
-        </div>
-
-        <div class="moto">
-            <img id="crypton" class="img-moto" src="img\CryptonFi_motos_header.png" alt="">
-            <div class="details">
-                <h3 class="nombre-moto">YAMAHA CRYPTON 110</h3>
-                <p class="precio-moto">$2.300.000</p>
-                <button class="agregar">COMPRAR</button>
-            </div>
-        </div>
-        
+     
     </div>
 </main>
-<section id="carrito">
-    <h2>MOTOS SELECCIONADAS</h2>
-    <div id="motos-carrito">
-
+<a href="https://api.whatsapp.com/send?phone=1158736196" class="btn-wpp" target="_blank"><i id="boton-wpp" class="fa-brands fa-whatsapp"></i></a>
+<section class="formulario">
+    <h2>DEJANOS TU CONSULTA Y NOS PONDREMOS EN CONTACTO</h2>
+    <div class="inputform">
+        <form action="" autocomplete="off" id="form-js">
+<input type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre" class="campo">
+<input type="email" name="email" id="email" placeholder="Ingresa tu correo" class="campo">
+<input type="text" name="numero" id="numero" placeholder="Celular" class="campo">
+<textarea name="mensaje" placeholder="Deja tu consulta" class="campo" id="mensaje"></textarea>
+<button type="submit" id="enviar-input" class="btn-enviar">Enviar mensaje</button>
+        </form>
+        <div id="mensaje-confirmacion" class="mensaje-confirmacion">
+            TU CONSULTA FUE ENVIADA CON EXITO, NOS PONDREMOS EN CONTACTO CONTIGO DENTRO DE 24HS.
+        </div>
     </div>
-    <p>Total: $ <span id="precio-total">0</span></p>
 </section>
-
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="main.js"></script>
 </body>
 </html>

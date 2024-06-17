@@ -1,132 +1,122 @@
-const motosArray = [
-{
-   nombre : "Motomel s2",
-   marca : "Motomel",
-   modelo: "Serie 2",
-   precio: 1600000,
-   img: "img/349968-800-auto.png"
-    
-},
 
-{
-    nombre : "Motomel deluxe",
-    marca : "Motomel",
-    modelo: "DLX",
-    precio: 1300000,
-    img: "img\MOTOMEL---DLX-110.png" 
- },
+/* CONTENEDOR DE MOTOS */
+const contenedorMotos = document.getElementById("contenedor-motos");
+/* BOTONES PARA FILTRAR MARCA */
+const hondaBoton = document.getElementById("honda-boton");
+const yamahaBoton = document.getElementById("yamaha-boton");
+const motomelBoton = document.getElementById("motomel-boton");
+const bajajBoton = document.getElementById("bajaj-boton");
+/* BOTON PARA VOLVER AL INICIO */
+const inicioBoton = document.getElementById("titulo");
 
- {
-    nombre : "Motomel blitz tunning",
-    marca : "Motomel",
-    modelo: "Blitz tunning",
-    precio: 1400000 ,
-    img: "img\Blitz-110-v8.II_Tunning_white_web.png" 
- },
+let motosArray = [];
 
- {
-    nombre : "Motomel Skua silver",
-    marca : "Motomel",
-    modelo: "Skua silver",
-    precio: 2200000,
-    img: "https://images.unomotos.com.ar/unomotos/motos_mini/motomel_skua_150_silver_0.png" 
- },
-
- {
-    nombre : "Honda GLH",
-    marca : "Honda",
-    modelo: "GLH",
-    precio: 5200000,
-    img: "img\honda_glh_150_gaucha_mini.png" 
- },
-
- {
-    nombre : "Rouser NS 200",
-    marca : "Bajaj",
-    modelo: "NS",
-    precio: 4000000,
-    img: "img\bajaj_rouser_200_ns_0km_mini.png"
- },
-
- {
-    nombre : "Rouser NS 160",
-    marca : "Bajaj",
-    modelo: "NS",
-    precio: 3300000,
-    img: "img\bajaj-pulsar-ns160-td-abs-ug-2024-negro-a68347.png" 
- },
-
- {
-    nombre : "Honda cb",
-    marca : "Honda",
-    modelo: "CB",
-    precio:6000000, 
-    img: "https://motos.honda.com.co/images/cms/Nueva-CB-300F-rojo.png" 
- },
-
- {
-    nombre : "Honda crf",
-    marca : "Honda",
-    modelo: " CRF",
-    precio: 13300000,
-    img: "img\c2_r (1).png"
- },
-
- {
-    nombre : "Yamaha cryton",
-    marca : "Yamaha",
-    modelo: "Crypton",
-    precio: 2300000,
-    img: "img\CryptonFi_motos_header.png"
- }
-];
-
-const motos = document.querySelectorAll(".moto");
-const carritoCantidad = document.getElementById("cantidad-carrito");
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-const actualizarCarrito = () => {
-   carritoCantidad.textContent = carrito.length;
-   localStorage.setItem("carrito", JSON.stringify(carrito));
-};
-
-
-motos.forEach(moto => {
-   const botonComprar = moto.querySelector(".agregar");
-   botonComprar.addEventListener("click", () => {
-      const nombre = moto.querySelector(".nombre-moto").textContent;
-      const precio = moto.querySelector(".precio-moto").textContent;
-      carrito.push({nombre, precio});
-      actualizarCarrito();
-   });
+/* CARGANDO DATOS JSON CON FETCH */
+fetch("/motosArray.json")
+.then(response => response.json())
+.then(data => {
+   motosArray = data;
+   mostrarMotos(motosArray);
 });
 
-function renderMotos(motosToRender) {
+/* INSERTANDO EL HTML DESDE JS PARA MOSTRAR LAS MOTOS */
+const mostrarMotos = (motos) => {
+   contenedorMotos.classList.add("oculto");
+   /* AGREGO UN SETTIMEOUT PARA CREAR UNA TRANSICION AL FILTRAR LA MARCA */
+   setTimeout(() => {
    contenedorMotos.innerHTML = '';
-   motosToRender.forEach(moto => {
-       const motoElement = document.createElement('div');
-       motoElement.classList.add('moto');
-       motoElement.innerHTML = `
-           <img id="${moto.id}" class="img-moto" src="${moto.img}" alt="${moto.nombre}">
-           <div class="details">
-               <h3 class="nombre-moto">${moto.nombre}</h3>
-               <p class="precio-moto">$${moto.precio.toLocaleString()}</p>
-               <button class="agregar">COMPRAR</button>
-           </div>
-       `;
-       contenedorMotos.appendChild(motoElement);
-      })}
+   motos.forEach(moto => {
+      const motoDiv = document.createElement("div");
+      motoDiv.classList.add("moto");
+      motoDiv.innerHTML =  `
+      <img class="img-moto" src="${moto.img}" alt="${moto.nombre}">
+      <div class="details">
+          <h3 class="nombre-moto">${moto.nombre}</h3>
+          <p class="precio-moto">$${moto.precio.toLocaleString()}</p>
+          <button class="agregar" data-nombre="${moto.nombre}">COMPRAR</button>
+      </div>
+  `;
+  contenedorMotos.appendChild(motoDiv);
+   });
+   contenedorMotos.classList.remove("oculto");
+}, 300);
+};
 
-document.getElementById("honda-boton").addEventListener("click", () => filtrarMotos("HONDA"));
-document.getElementById("yamaha-boton").addEventListener("click", () => filtrarMotos("YAMAHA"));
-document.getElementById("motomel-boton").addEventListener("click", () => filtrarMotos("MOTOMEL"));
-document.getElementById("bajaj-boton").addEventListener("click", () => filtrarMotos("BAJAJ"));
+/* FUNCION PARA FILTRAR LAS MOTOS */
+const filtrarMotos = (marca) => {
+   return motosArray.filter(moto => moto.marca === marca);
+};
+/* EVENTO PARA CUANDO HACEMOS CLICK SOBRE EL BOTON DE MARCAS */
+hondaBoton.addEventListener("click", () => mostrarMotos(filtrarMotos("Honda")));
+yamahaBoton.addEventListener("click", () => mostrarMotos(filtrarMotos("Yamaha")));
+motomelBoton.addEventListener("click", () => mostrarMotos(filtrarMotos("Motomel")));
+bajajBoton.addEventListener("click", () => mostrarMotos(filtrarMotos("Bajaj")));
 
-function filtrarMotos(marca){
-   const motosFiltradas = motos.filter(moto => moto.marca === marca);
+/* BOTON TITULO PARA VOLVER A MOSTRAR TODAS LAS MOTOS */
+inicioBoton.addEventListener("click", () => {
+   mostrarMotos(motosArray)
+});
 
+mostrarMotos(motosArray);
+
+/* FORMULARIO */
+const formulario = document.querySelector("#form-js");
+const botonEnviar = document.querySelector("#enviar-input");
+
+const inputNombre = document.querySelector("#nombre");
+const inputEmail = document.querySelector("#email");
+const inputNumero = document.querySelector("#numero");
+const inputMensaje = document.querySelector("#mensaje");
+
+const mensajeConfirmacion = document.querySelector("#mensaje-confirmacion");
+
+/* LLAMANDO AL BOTON ENVIAR */
+formulario.addEventListener("submit", (e) =>{
+   e.preventDefault();
+
+const nombre = inputNombre.value;
+const email = inputEmail.value;
+const numero = inputNumero.value;
+const mensaje = inputMensaje.value;
+
+if (nombre === "" || email === "" || numero === "" || mensaje === ""){
+   alert("COMPLETE TODOS LOS CAMPOS.");
+   return;
 }
 
-renderMotos(filtrarMotos);
+if (!numeroInvalid(numero)){
+   alert("INGRESA UN NUMERO VALIDO.");
+   return;
+}
 
-actualizarCarrito();
+/* GUARDANDO LOS DATOS EN EL LOCALSTORAGE
+ */
+localStorage.setItem("nombre", nombre);
+localStorage.setItem("email", email);
+localStorage.setItem("numero", numero);
+localStorage.setItem("mensaje", mensaje);
+
+
+Swal.fire({
+   position: "center",
+   icon: "success",
+   title: "TU CONSULTA FUE ENVIADO CON EXITO",
+   showConfirmButton: false,
+   timer: 2000
+ });
+
+mensajeConfirmacion.style.display = "block";
+
+/* LE AGREGO UN TIEMPO AL TEXTO DE 3s */
+setTimeout(() => {
+   mensajeConfirmacion.style.display = "none";
+}, 3000);
+
+formulario.reset(); 
+
+});
+/* VALIDAR SI EL NUMERO INGRESADO ES VALIDO */
+function numeroInvalid(numero){
+   const re = /^\d+$/;
+   return re.test(numero);
+}

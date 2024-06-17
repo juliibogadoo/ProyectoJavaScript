@@ -1,24 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poetsen+One&family=REM:ital,wght@0,100..900;1,100..900&family=Titan+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 *{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: "Kanit", sans-serif;
+    font-family: "Oswald", sans-serif;
     text-decoration: none;
     list-style-type: none;
+    
  }
+body{
+    background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+
+}
  .contenedor{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     padding: 50px;
+    transition: opacity 0.3s ease;
 
  }
+ .oculto{
+    opacity: 0;
+    pointer-events: none;
+ }
+
 
 nav{
-    background-color: rgb(255, 255, 255);
     padding: 1rem;
     display: flex;
     justify-content: center;
@@ -26,7 +38,12 @@ nav{
     
 }
 h1{
+    font-size: 50px;
+    color: rgb(34, 32, 32);
     text-align: center;
+    cursor: pointer;
+    text-shadow: 4px 3px 10px white;
+    
 }
 
 nav ul{
@@ -44,22 +61,6 @@ nav ul{
     max-width:40%;
 }
 
-#serie2{
-margin-top: 42px;
-}
-
-#skua{
-    
-    margin-top: 0px;
-}
-
-#ns160{
-    margin-top: -33px;
-}
-
-#crf{
-    margin-top: 35px;
-}
 
 .boton-marca{
     background-color: transparent;
@@ -72,26 +73,37 @@ margin-top: 42px;
 .boton-marca:hover{
     transform: scale(1.15);
 }
-.carrito{
-    display: flex;
-    flex-direction: column;
-    color: rgb(171, 41, 41);
-    font-size: 30px;
-    text-align: end;
-    margin-right: 50px;
+#boton-wpp{
+   
+   color: rgb(255, 255, 255);
+  
 
-    
 }
 
-.carrito span{
-    font-size: 25px;
-    padding: 7px;
+.btn-wpp{
+   position: fixed;
+   text-align: center;
+   font-size: 36px;
+   background: rgb(10, 212, 3);
+   border-radius: 50px;
+   width: 55px;
+   height: 55px;
+   line-height: 50px;
+   bottom: 30px;
+   right: 30px;
+   box-shadow: 0px 1px 10px rgb(34, 32, 32);
+   transition: all 300ms;
+}
+
+.btn-wpp:hover{
+   transform: scale(1.15);
 }
 
 
  .img-moto{
-max-width: 100%;
+width: 100%;
 object-fit: cover;
+height: 400px;
 transition: all 300ms;
  }
  .img-moto:hover{
@@ -157,3 +169,49 @@ transition: all 300ms;
     font-weight: bold;
     font-size: 1.2em;
  }
+
+ .formulario{
+   background: #00000088;
+   height: 800px;
+   width: 100%;
+   text-align: center;
+   
+ }
+
+ .inputform form .campo, textarea{
+  width: 50%;
+  padding: 15px 10px;
+  outline: 0px;
+  border-radius: 3px;
+  margin-top: 40px;
+margin-bottom: 30px;
+  border: 1px solid #dbdbdb;
+ }
+
+ .inputform form textarea{
+   max-width: 1000px;
+ }
+
+form .btn-enviar{
+   
+   padding: 15px;
+   border: none;
+   cursor: pointer;
+   text-align: center;
+   width: 50%;
+}
+
+h2{
+   padding-top: 50px;
+   font-size: 40px;
+   text-shadow: 5px 0 10px white;
+}
+
+.mensaje-confirmacion{
+   display: none;
+   margin-top: 20px;
+   color: #c2c2c2;
+   font-weight: bold;
+   transition: 300ms;
+}
+
